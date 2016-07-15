@@ -1,0 +1,130 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
+
+a img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/*sprite*/
+.my-icons-sprite, .my-icons-cream1, .my-icons-cream2 {
+  background-image: url('../images/my-icons-sb5a3ea0d7a.png');
+  background-repeat: no-repeat; }
+
+.my-icons-cream1 {
+  background-position: 0 0; }
+
+.my-icons-cream2 {
+  background-position: 0 -128px; }
+
+.dessert_box1 {
+  text-indent: -9999px;
+  display: inline-block;
+  width: 128px;
+  height: 128px;
+  background: url('../images/my-icons-s0099924cb2.png') 0 0; }
+  .dessert_box1:hover {
+    background: url('../images/my-icons-s0099924cb2.png') 0 -128px; }
+
+/* =======================================================
+*
+* 	Template Style 
+*	Edit this section
+*
+* ======================================================= */
+body {
+  font-family: 'Noto Sans TC', sans-serif; }
+
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+.nav_header, .container, footer {
+  max-width: 1170px;
+  margin: 0 auto; }
+
+header {
+  height: 800px;
+  background-color: rgba(66, 64, 64, 0.9); }
+
+.nav_header {
+  padding-top: 30px; }
+  .nav_header nav {
+    float: right; }
+
+.nav_bar {
+  margin: 0;
+  padding: 20px 0 0 0;
+  display: inline-block; }
+  .nav_bar li {
+    display: inline-block;
+    padding-left: 25px; }
+    .nav_bar li a {
+      font-family: 'Noto Sans TC', sans-serif;
+      color: rgba(255, 255, 255, 0.5);
+      transition-property: all;
+      transition-duration: 0.3s; }
+      .nav_bar li a:hover {
+        color: white; }
+  .nav_bar li.active a {
+    color: white; }
+
+.loginbar {
+  display: inline-block;
+  padding: 2px 6px;
+  margin-left: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition-property: all;
+  transition-duration: 0.3s; }
+  .loginbar:hover {
+    background-color: #FCC72C; }
+  .loginbar a {
+    color: rgba(66, 64, 64, 0.9);
+    text-shadow: rgba(255, 255, 255, 0.3) 1px 1px 0; }
+    .loginbar a i {
+      padding-right: 5px; }
