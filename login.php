@@ -73,14 +73,13 @@
               $_SESSION['username'] = $post_username;//寫入session
               //記我30天
               if( isset($_POST['rememberMe'])){
-                if(!empty($_POST['rememberMe'])){
+                
                   echo 'on';
                   setcookie("temp_username",$post_username, time()+3600*24*30);
-                }else{
-                  echo 'off';
-                  var_dump($_COOKIE);
-                  unset($_COOKIE['temp_username']);
-                };
+              }else{
+                echo 'off';
+                var_dump($_COOKIE);
+                unset($_COOKIE['temp_username']);
               };
               // header("Location:index.php");
             }else{
