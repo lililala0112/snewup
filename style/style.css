@@ -73,7 +73,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 *
 * ======================================================= */
 body {
-  font-family: 'Noto Sans TC', sans-serif; }
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  letter-spacing: 2px; }
 
 a {
   text-decoration: none; }
@@ -89,6 +90,7 @@ header {
   height: 800px;
   background-color: rgba(66, 64, 64, 0.9); }
 
+/*navigation bar*/
 .nav_header {
   padding-top: 30px; }
   .nav_header nav {
@@ -99,8 +101,9 @@ header {
   padding: 20px 0 0 0;
   display: inline-block; }
   .nav_bar li {
+    font-size: 1em;
     display: inline-block;
-    padding-left: 25px; }
+    padding-left: 35px; }
     .nav_bar li a {
       font-family: 'Noto Sans TC', sans-serif;
       color: rgba(255, 255, 255, 0.5);
@@ -111,9 +114,21 @@ header {
   .nav_bar li.active a {
     color: white; }
 
-.loginbar {
+/*login bar*/
+.logbar_wrap {
+  position: relative;
   display: inline-block;
-  padding: 2px 6px;
+  height: 36px; }
+  .logbar_wrap:hover .log_dropdown {
+    box-shadow: black 2px 2px 10px;
+    visibility: visible; }
+  .logbar_wrap:hover .loginbar {
+    background-color: white; }
+
+.loginbar {
+  font-size: 0.75em;
+  display: inline-block;
+  padding: 4px 8px;
   margin-left: 20px;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -122,9 +137,187 @@ header {
   transition-property: all;
   transition-duration: 0.3s; }
   .loginbar:hover {
-    background-color: #FCC72C; }
+    background-color: white; }
   .loginbar a {
     color: rgba(66, 64, 64, 0.9);
+    display: block;
     text-shadow: rgba(255, 255, 255, 0.3) 1px 1px 0; }
-    .loginbar a i {
+    .loginbar a .fa-user {
       padding-right: 5px; }
+    .loginbar a .fa-chevron-down {
+      padding-left: 5px; }
+
+.log_dropdown {
+  cursor: pointer;
+  visibility: hidden;
+  font-size: 1em;
+  color: rgba(66, 64, 64, 0.9);
+  position: absolute;
+  z-index: 1;
+  min-width: 120px;
+  top: 36px;
+  left: 0; }
+
+.log_dropdown ::before {
+  content: '';
+  position: absolute;
+  top: -18%;
+  left: 30%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent white transparent; }
+
+.log_dropdown li {
+  white-space: nowrap;
+  padding-bottom: 1.625em;
+  background-color: white;
+  padding: 0.625em 1.25em; }
+  .log_dropdown li:hover a {
+    color: #FCC72C; }
+
+.log_dropdown li:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px; }
+
+.log_dropdown li:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px; }
+
+/*alert log*/
+.alert_btn:hover, .alert_btn:active, .alert_btn:focus {
+  background: #f2b503; }
+
+.alert_btn {
+  margin-top: 15px; }
+
+/*Form*/
+.form {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
+
+.form input[type=text], .form input[type=password] {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px 15px 15px 30px;
+  box-sizing: border-box;
+  font-size: 14px; }
+
+.form input[type=text]:focus, .form input[type=password]:focus {
+  outline: solid 2px #FCC72C; }
+
+.form button, .alert_btn {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #FCC72C;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.3s; }
+
+.form label {
+  position: relative; }
+
+.form label i {
+  color: rgba(66, 64, 64, 0.9);
+  position: absolute;
+  left: 10px;
+  top: 5px; }
+
+.form button:hover, .form button:active, .form button:focus {
+  background: #f2b503; }
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px; }
+
+.form .message a {
+  color: #FCC72C;
+  text-decoration: none; }
+
+.form .errmsg {
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  padding: 2px 4px;
+  margin: 0 0 15px;
+  text-align: left;
+  font-size: 0.75em;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px; }
+
+.log_bg {
+  background-color: rgba(66, 64, 64, 0.9); }
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto; }
+
+.welcome_login {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 16px; }
+
+.form .register-form {
+  display: none; }
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto; }
+
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both; }
+
+.container .info {
+  margin: 50px auto;
+  text-align: center; }
+
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a; }
+
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px; }
+
+.container .info span a {
+  color: #000000;
+  text-decoration: none; }
+
+.container .info span .fa {
+  color: #EF3B3A; }
+
+.dialog {
+  display: none;
+  width: 200px;
+  text-align: center;
+  line-height: 24px;
+  padding: 100px;
+  background-color: #fff;
+  margin: 200px auto 0 auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
