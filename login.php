@@ -63,25 +63,21 @@
           if( !empty($_POST['username']) && !empty($_POST['password'])){
 
             $db_username = "aaa";
-            $db_password = "1234";
+            $db_password = crypt(1234);
 
             $post_username = test_input($_POST['username']);
             $post_password = test_input($_POST['password']);
 
-            if( ($post_username == $db_username) && ($post_password == $db_password)){
+            if( ($post_username == $db_username) && (crypt($post_password,$db_password) == $db_password)){
               //資料正確 寫入session
               $_SESSION['username'] = $post_username;//寫入session
               //記我30天
               if( isset($_POST['rememberMe'])){
-                
-                  echo 'on';
                   setcookie("temp_username",$post_username, time()+3600*24*30);
               }else{
-                echo 'off';
-                var_dump($_COOKIE);
-                unset($_COOKIE['temp_username']);
+                setcookie ("temp_username", "", time() - 3600);
               };
-              // header("Location:index.php");
+              header("Location:index.php");
             }else{
               //資料不符
               ?>

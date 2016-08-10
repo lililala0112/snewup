@@ -66,6 +66,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   .dessert_box1:hover {
     background: url('../images/my-icons-s0099924cb2.png') 0 -128px; }
 
+.logoSvg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #545252;
+  z-index: 2000;
+  text-align: center;
+  padding-top: 150px;
+  animation: fadeOut 1s linear 1s forwards; }
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 /* =======================================================
 *
 * 	Template Style 
@@ -155,13 +171,13 @@ header {
   position: absolute;
   z-index: 1;
   min-width: 120px;
-  top: 36px;
+  top: 35px;
   left: 0; }
 
 .log_dropdown ::before {
   content: '';
   position: absolute;
-  top: -18%;
+  top: -15%;
   left: 30%;
   margin-left: -5px;
   border-width: 5px;
@@ -170,7 +186,6 @@ header {
 
 .log_dropdown li {
   white-space: nowrap;
-  padding-bottom: 1.625em;
   background-color: white;
   padding: 0.625em 1.25em; }
   .log_dropdown li:hover a {
