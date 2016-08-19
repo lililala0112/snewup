@@ -1,6 +1,6 @@
 <?php 
     header("Content-Type:text/html; charset=utf-8");
-    include("lib/connMysql.php");
+    include("connMysql.php");
 
     /*
     *參照教學:https://gist.github.com/jonsuh/3739844

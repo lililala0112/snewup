@@ -1,3 +1,4 @@
+
 	<header>
 	    <div class="nav_header">
 		    <h1 class="logo"></h1>
@@ -38,3 +39,13 @@
 		    </nav>	
 	    </div>
 	</header>
+
+<div class="dialog animated" id="">
+  <p>MSG here</p>
+  <button class="alert_btn">確 認</button>
+</div>
+
+<div class="loading" id="loading">
+<i class="loading_spin fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
+<p></p>
+</div>

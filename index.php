@@ -10,7 +10,7 @@
     	</div>
     </div>
     <!-- header -->
-    <?php include 'header.php';?>
+    <?php include 'lib/header.php';?>
     <!-- contact -->
 
     <section class="contact">
@@ -34,20 +34,9 @@
     		
     	</form>
     </section>
-
-    <form id="target" action="destination.html">
-  <input type="text" value="Hello there">
-  <input type="submit" value="Go">
-</form>
-<div id="other">
-  Trigger the handler
-</div>
-</body>
-</html>
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<script src="js/main.js"></script>
-<script src="js/cookie.js"></script>
-<script src="js/ajax.js"></script>
+    <?php
+      include 'lib/footer.php';
+    ?>
 <script>
 (function (){
 	//當今天第一次進入才跑動畫
@@ -71,7 +60,7 @@
     };
     data = $(this).serialize() + "&" + $.param(data);
     console.log(data);
-    getJSON("ajax-index.php",data,function (data){
+    getJSON("useAPI.php",data,function (data){
       // json.parse(data);
       //登入錯誤訊息
       console.log(data);

@@ -13,7 +13,7 @@
         },
         type: "POST",
         dataType: "json",
-        url: url, //Relative or absolute path to ajax-index.php file
+        url: 'lib/'+url, //Relative or absolute path to ajax-index.php file
         data: data,
         success: function(data) {
           callback(data);

@@ -47,13 +47,10 @@
   <p>MSG here</p>
   <button class="alert_btn">確 認</button>
 </div>
-</body>
-</html>
-<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
-<script src="js/main.js"></script>
+    <?php
+      include 'lib/footer.php';
+    ?>
 <?php
-
-
   if( !isset($_SESSION['username']) ){
  
       //未登入狀態
