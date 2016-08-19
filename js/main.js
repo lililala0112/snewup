@@ -1,12 +1,31 @@
 
    function dialog(msg){
-    $('.dialog').css('display','block').wrap('<div id="blackbg" style="background-color:rgba(0, 0, 0, 0.8);position:absolute;top:0;left:0;bottom:0;right:0;z-index:999"><div>').addClass('slideInDown')
-    .find('p').html(msg).addClass('slideInDown');
+    if($('#blackbg').length){
+       $('#blackbg').fadeIn();
+    }else{
+      $('.dialog').css('display','block').wrap('<div id="blackbg" class="blackbg">').addClass('slideInDown');
+    }
+    $('.dialog').find('p').html(msg);
+   }
 
-    $('.dialog').find('button').click(function (){
-      $('#blackbg').fadeOut();
-    });
-    $('#blackbg').click(function (){
-      $('.dialog > button').trigger('click');
-    });
+   $('.dialog').find('button').click(function (){
+     $('#blackbg').fadeOut();
+   });
+
+
+
+   function loading(evt){
+     var percentComplete = Math.ceil(evt.loaded / evt.total)*100;
+
+    if($('#loadingblackbg').length){
+       $('#loadingblackbg').fadeIn();
+    }else{
+      $('.loading').css('display','block').wrap('<div id="loadingblackbg" class="blackbg">');
+    }
+
+    if (percentComplete === 100) {
+      console.log(percentComplete);
+        $('#loading').parent().fadeOut();
+    }
+
    }

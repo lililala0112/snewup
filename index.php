@@ -1,6 +1,6 @@
 <?php
-	include 'headmeta.php';
-	include 'fn.php';
+	include 'lib/headmeta.php';
+	include 'lib/fn.php';
 ?>
 
 <body>
@@ -46,7 +46,8 @@
 </html>
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 <script src="js/main.js"></script>
-<script src="js/lib/cookie.js"></script>
+<script src="js/cookie.js"></script>
+<script src="js/ajax.js"></script>
 <script>
 (function (){
 	//當今天第一次進入才跑動畫
@@ -70,33 +71,13 @@
     };
     data = $(this).serialize() + "&" + $.param(data);
     console.log(data);
-    $.ajax({
-      xhr: function()
-        {
-          var xhr = new window.XMLHttpRequest();
-          //Upload progress
-          xhr.upload.addEventListener("progress", function(evt){
-                loading(evt);
-          }, false);
-          //Download progress
-          xhr.addEventListener("progress", function(evt){
-                loading(evt);
-          }, false);
-          return xhr;
-      },
-      type: "POST",
-      dataType: "json",
-      url: "ajax-index.php", //Relative or absolute path to ajax-index.php file
-      data: data,
-      success: function(data) {
-        // json.parse(data);
-        //登入錯誤訊息
-        console.log(data);
-        if(data.status==1){
-            var msg = data.message;
-            dialog(msg);
-        }
-
+    getJSON("ajax-index.php",data,function (data){
+      // json.parse(data);
+      //登入錯誤訊息
+      console.log(data);
+      if(data.status==1){
+          var msg = data.message;
+          dialog(msg);
       }
     });
     return false;
