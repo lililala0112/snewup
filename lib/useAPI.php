@@ -28,16 +28,20 @@
       return isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
     }
     function insertContactDB(){
-         echo 'insertCountactDB';   
+            
          $ajaxUrl = new useAPI;
-         $name = real_escape_string($_POST['name']);
-         $company = real_escape_string($_POST['company']);
-         $phone = real_escape_string($_POST['phone']);
-         $mail = real_escape_string($_POST['mail']);
-         $comment = real_escape_string($_POST['comment']);
-         $sql = "INSERT INTO `contact`(`ID`, `Name`, `Company`, `Phone`, `Mail`, `Date`, `Comment`) VALUES (NULL,'{$name}','{$company}','{$phone}','{$mail}',NOW(),'{$comment}')";
-         $resdata = $_POST;
-         $resdata['msg']="感謝您的填寫<br/>表單已成功送出!!";
+         $name = $ajaxUrl->mysqli->real_escape_string($_POST['name']);
+         $company = $ajaxUrl->mysqli->real_escape_string($_POST['company']);
+         $phone = $ajaxUrl->mysqli->real_escape_string($_POST['phone']);
+         $mail = $ajaxUrl->mysqli->real_escape_string($_POST['mail']);
+         $comment = $ajaxUrl->mysqli->real_escape_string($_POST['comment']);
+         $sql = "INSERT INTO 
+                  `contact`(
+                  `ID`, `Name`, `Company`, `Phone`, `Mail`, `Date`, `Comment`
+                  ) 
+                 VALUES (
+                  NULL,'{$name}','{$company}','{$phone}','{$mail}',NOW(),'{$comment}'
+                 )";
          $ajaxUrl->setData($sql);//寫入
          $ajaxUrl->insertData();//回傳
    }
@@ -45,45 +49,29 @@
 
    function inquerySheet(){
          $ajaxUrl = new useAPI;
-         $sql = "SELECT * FROM `contac`";
+         $sql = "SELECT * FROM `contact`";
          $ajaxUrl->setData($sql);//寫入
          $ajaxUrl->showData();//回傳
    }
 
 
    function checkUserAccout(){
-    
-        //查詢資料庫是否存在
-         if( !empty($_POST['username']) && !empty($_POST['password'])){
+       
+            //未登入狀態
+            //Submit送出資料
 
-           $post_username = $_POST['username'];
-           $post_password = crypt ($_POST['password']);
-           echo $post_username.$post_password;
+          if( !empty($_POST['username']) && !empty($_POST['password'])){
+          $ajaxUrl = new useAPI;
 
-           //查詢資料庫是否存在
-               global $mysqli;
-               $sqli= "SELECT * FROM `admin` where account = '{$post_username}'";
-               $db_result = $mysqli->query($sqli);
-               if(!$db_result) die("資料表連結失敗");     
-               //是否存在 1存在0不存在
-               $checkAccout = $db_result->num_rows;
-               //讀出此筆資料
-               echo $checkAccout;
+            $post_username =  $ajaxUrl->mysqli->real_escape_string($_POST['username']);
+            $post_password =  $ajaxUrl->mysqli->real_escape_string($_POST['password']);
+            //查詢資料庫是否存在
+   
+            $sql = "SELECT * FROM `admin` where `account` = '{$post_username}'";
+            $ajaxUrl->setData($sql);//寫入
+            $ajaxUrl->checkData();//回傳
+          }
 
-               if( $checkAccout == 0){
-                   $sql_insert="INSERT INTO `admin`(`ID`, `account`, `password`) VALUES (NULL,'{$post_username}','{$post_password}')";
-
-                   $result['status']=1;
-                   $result['mag']="已經註冊成功";
-                   $result['lanch']="index.php";
-
-                 }else{                 
-                   $result['status']=1;
-                   $result['mag']="帳號已存在，請重新輸入";
-               }
-               echo json_encode($result);
-
-           }
    }
 
 

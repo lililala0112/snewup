@@ -95,11 +95,11 @@
             $this->mysqli->query($sql);
             $checkAccoutExist = $db_result->num_rows;
             //判斷是否存在
-              $db_PassWord = mysqli_fetch_object($db_result)->password;
             function checkPw(){
+              $db_PassWord = mysqli_fetch_object($db_result)->password;
                return $db_PassWord;
-               echo $db_PassWord;
             }
+            echo checkPw();
             $checkPw = checkPw();
             $return = array(
                    'status'=>1,

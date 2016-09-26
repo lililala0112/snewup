@@ -105,6 +105,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 3rem;
   padding: 0 1rem; }
 
+.logoSvg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #545252;
+  z-index: 2000;
+  text-align: center;
+  padding-top: 150px;
+  animation: fadeOut 1s linear 1s forwards; }
+@keyframes fadeOut {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 /* =======================================================
 *
 * 	Template Style 
@@ -292,15 +308,19 @@ header, .login-page, .contact {
   background: #f2b503; }
 
 .alert_btn {
+  width:100%;
   margin-top: 15px; }
 
 /*Form*/
 .form {
+  padding:50px;
+  box-sizing: border-box;
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   position: relative;
   z-index: 1;
   background: #FFFFFF;
-  text-align: center; }
+  text-align: center; 
+}
 
 .form input[type=text], .form input[type=password], textarea {
   font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
@@ -466,7 +486,7 @@ header, .login-page, .contact {
   line-height: 24px;
   padding: 100px;
   background-color: #fff;
-  margin: 30% auto 0 auto;
+  margin: 18% auto 0 auto;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24); }
 
 /*index contact*/
